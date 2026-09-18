@@ -24,7 +24,6 @@ public class CashFacade {
                 member.getCreateDate(),
                 member.getModifyDate(),
                 member.getUsername(),
-                "",
                 member.getNickname(),
                 member.getActivityScore()
         );

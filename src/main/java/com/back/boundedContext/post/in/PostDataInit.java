@@ -1,6 +1,5 @@
 package com.back.boundedContext.post.in;
 
-import com.back.boundedContext.member.app.MemberFacade;
 import com.back.boundedContext.post.app.PostFacade;
 import com.back.boundedContext.post.domain.Post;
 import com.back.boundedContext.post.domain.PostMember;
@@ -17,16 +16,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 public class PostDataInit {
     private final PostDataInit self;
-    private final MemberFacade memberFacade;
     private final PostFacade postFacade;
 
     public PostDataInit(
             @Lazy PostDataInit self,
-            MemberFacade memberFacade,
             PostFacade postFacade
     ) {
         this.self = self;
-        this.memberFacade = memberFacade;
         this.postFacade = postFacade;
     }
 
