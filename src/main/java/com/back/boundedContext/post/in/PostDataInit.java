@@ -66,7 +66,9 @@ public class PostDataInit {
 
     @Transactional
     public void makeBasePostComments() {
-
+        if (postFacade.findPostCommentCount() > 0){
+            return;
+        }
 
         PostMember user1Member = postFacade.findMemberByUsername("user1").orElseThrow(() -> new RuntimeException("회원 없음"));
         PostMember user2Member = postFacade.findMemberByUsername("user2").orElseThrow(() -> new RuntimeException("회원 없음"));

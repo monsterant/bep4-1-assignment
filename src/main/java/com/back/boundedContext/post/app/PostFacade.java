@@ -2,6 +2,7 @@ package com.back.boundedContext.post.app;
 
 import com.back.boundedContext.post.domain.Post;
 import com.back.boundedContext.post.domain.PostMember;
+import com.back.boundedContext.post.out.PostCommentRepository;
 import com.back.boundedContext.post.out.PostMemberRepository;
 import com.back.boundedContext.post.out.PostRepository;
 import com.back.global.rsData.RsData;
@@ -18,6 +19,7 @@ public class PostFacade {
     private final PostRepository postRepository;
     private final PostWriteUseCase postWriteUseCase;
     private final PostMemberRepository postMemberRepository;
+    private final PostCommentRepository postCommentRepository;
 
     @Transactional(readOnly = true)
     public long count() {
@@ -51,5 +53,13 @@ public class PostFacade {
     public Optional<PostMember> findMemberByUsername(String username) {
         return postMemberRepository.findByUsername(username);
     }
+
+    @Transactional(readOnly = true)
+    public long findPostCommentCount() {
+        return postCommentRepository.count();
+    }
+
+
+
 
 }
